@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Lista de tareas accesible: agrega, busca, completa y elimina tareas con confirmación y opción de deshacer.">
+  <title>Mi lista de tareas | Rediseño UX/UI</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="estilos.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="contenedor">
+    <header class="cabecera">
+      <p class="etiqueta">LABORATORIO 11 · REDISEÑO UX/UI</p>
+      <h1>Mi lista de tareas</h1>
+      <p class="introduccion">Organiza tus actividades, marca lo que terminaste y mantén el control de tus pendientes.</p>
+    </header>
+
+    <section class="panel" aria-labelledby="titulo-agregar">
+      <div class="panel-encabezado"><h2 id="titulo-agregar">1. Agregar tarea</h2><span class="mini-paso">Paso 1 de 2</span></div>
+      <form id="formTarea" novalidate>
+        <label for="inputTarea">Nombre de la tarea <span class="obligatorio">(obligatorio)</span></label>
+        <div class="form-fila">
+          <input id="inputTarea" name="tarea" type="text" placeholder="Ej.: Preparar examen de JavaScript" maxlength="120" autocomplete="off" required aria-describedby="ayudaTarea">
+          <button id="botonAgregar" class="btn btn-primario" type="submit" disabled>Agregar tarea</button>
+        </div>
+        <p id="ayudaTarea" class="ayuda">Escribe un nombre para activar el botón. No se permiten tareas vacías.</p>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="titulo-tareas">
+      <div class="panel-encabezado"><h2 id="titulo-tareas">2. Mis tareas</h2><span id="contador" class="contador" aria-live="off">2 tareas</span></div>
+      <div class="filtros">
+        <div class="campo-filtro">
+          <label for="filtroTareas">Buscar tareas</label>
+          <input id="filtroTareas" type="search" placeholder="Escribe para buscar..." autocomplete="off">
+        </div>
+        <div class="campo-filtro campo-estado">
+          <label for="filtroEstado">Mostrar</label>
+          <select id="filtroEstado">
+            <option value="todas">Todas</option>
+            <option value="pendientes">Pendientes</option>
+            <option value="completadas">Completadas</option>
+          </select>
+        </div>
+      </div>
+      <p class="leyenda">Selecciona <strong>Completar</strong> para cambiar el estado o <strong>Eliminar</strong> para retirar una tarea.</p>
+      <ul id="listaTareas" class="lista" aria-label="Listado de tareas"></ul>
+      <p id="sinResultados" class="vacio" hidden>No hay tareas que coincidan con la búsqueda.</p>
+    </section>
+
+    <div id="aviso" class="aviso" role="status" aria-live="polite" aria-atomic="true">
+      <span id="mensajeTarea">Lista de tareas lista para utilizar.</span>
+      <button id="botonDeshacer" type="button" class="btn btn-deshacer" hidden>Deshacer eliminación</button>
+    </div>
+    <footer class="pie">Proyecto original: Laboratorio 08 · Rediseño: Laboratorio 11</footer>
+  </main>
+</body>
+</html>

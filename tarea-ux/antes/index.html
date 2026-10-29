@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mi lista de tareas</title>
+  </head>
+  <body>
+    <h1>Mi lista de tareas</h1>
+
+    <h2>Agregar tarea</h2>
+
+    <form id="formTarea">
+      <label for="inputTarea">Nombre de la tarea:</label>
+      <input type="text" id="inputTarea" />
+      <button type="submit">Agregar</button>
+    </form>
+
+    <p id="mensajeTarea"></p>
+
+    <h2>Buscar tareas</h2>
+
+    <label for="filtroTareas">Buscar:</label>
+    <input type="text" id="filtroTareas" />
+
+    <h2>Tareas pendientes:</h2>
+
+    <ul id="listaTareas"></ul>
+
+    <script src="app.js"></script>
+  </body>
+</html>
